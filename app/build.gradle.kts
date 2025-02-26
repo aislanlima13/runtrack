@@ -1,20 +1,13 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
     alias(libs.plugins.mapsplatform.secrets.plugin)
+    // adiciona o id do nosso plugin
+    alias(libs.plugins.runtrack.android.application)
 }
 
 android {
     namespace = "com.aislan.runtrack"
-    compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.aislan.runtrack"
-        minSdk = 26
-        targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -26,13 +19,6 @@ android {
                 "proguard-rules.pro"
             )
         }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
     }
     buildFeatures {
         compose = true
