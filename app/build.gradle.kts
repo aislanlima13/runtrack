@@ -1,6 +1,5 @@
 plugins {
     alias(libs.plugins.mapsplatform.secrets.plugin)
-    // adiciona o id do nosso plugin
     alias(libs.plugins.runtrack.android.application)
 }
 
@@ -11,15 +10,6 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
     buildFeatures {
         compose = true
     }

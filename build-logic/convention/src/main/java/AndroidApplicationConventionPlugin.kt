@@ -1,3 +1,5 @@
+import com.aislan.convention.ExtensionType
+import com.aislan.convention.configureBuildTypes
 import com.android.build.api.dsl.ApplicationExtension
 import com.aislan.convention.configureKotlinAndroid
 import com.aislan.convention.libs
@@ -24,6 +26,11 @@ class AndroidApplicationConventionPlugin: Plugin<Project> {
                 }
 
                 configureKotlinAndroid(this)
+
+                configureBuildTypes(
+                    commonExtension = this,
+                    extensionType = ExtensionType.APPLICATION
+                )
             }
         }
     }
