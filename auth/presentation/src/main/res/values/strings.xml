@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="runtrack">Runtrack</string>
+    <string name="welcome_to_runtrack">Welcome to Runtrack</string>
+    <string name="runtrack_description">Track your runs, set goals and achieve fitness milestones with ou intuitive app</string>
+    <string name="sign_up">Sing Up</string>
+    <string name="sign_in">Sing In</string>
+</resources>
