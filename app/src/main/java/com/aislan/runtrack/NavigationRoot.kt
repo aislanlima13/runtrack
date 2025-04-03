@@ -1,5 +1,6 @@
 package com.aislan.runtrack
 
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
@@ -52,6 +53,10 @@ private fun NavGraphBuilder.authGraph(navController: NavController) {
                     navController.navigate("login")
                 }
             )
+        }
+
+        composable("login") {
+            Text(text = "Login")
         }
     }
 }
