@@ -2,7 +2,7 @@ package com.aislan.runtrack
 
 import android.app.Application
 import com.aislan.auth.presentation.di.authViewModelModule
-import com.aislan.core.data.networking.coreDataModule
+import com.aislan.core.data.di.coreDataModule
 import com.aislan.data.data.di.authDataModule
 import com.aislan.runtrack.di.appModule
 import org.koin.android.ext.koin.androidContext
