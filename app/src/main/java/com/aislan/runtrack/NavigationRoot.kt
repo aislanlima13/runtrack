@@ -1,6 +1,5 @@
 package com.aislan.runtrack
 
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
@@ -9,6 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.aislan.auth.presentation.intro.IntroScreenRoot
+import com.aislan.auth.presentation.login.LoginScreenRoot
 import com.aislan.auth.presentation.register.RegisterScreenRoot
 
 @Composable
@@ -56,7 +56,24 @@ private fun NavGraphBuilder.authGraph(navController: NavController) {
         }
 
         composable("login") {
-            Text(text = "Login")
+            LoginScreenRoot(
+                onLoginSuccess = {
+                    navController.navigate("run") {
+                        popUpTo("auth") {
+                            inclusive = true
+                        }
+                    }
+                },
+                onSignUpClick = {
+                    navController.navigate("register") {
+                        popUpTo("login") {
+                            inclusive = true
+                            saveState = true
+                        }
+                        restoreState = true
+                    }
+                }
+            )
         }
     }
 }
