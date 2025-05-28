@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import com.aislan.core.presentation.designsystem.RuntrackTheme
 import com.aislan.core.presentation.designsystem.StartIcon
 import com.aislan.core.presentation.designsystem.StopIcon
+import com.aislan.core.presentation.designsystem.components.RuntrackActionButton
 import com.aislan.core.presentation.designsystem.components.RuntrackDialog
 import com.aislan.core.presentation.designsystem.components.RuntrackFloatingActionButton
 import com.aislan.core.presentation.designsystem.components.RuntrackOutlinedActionButton
@@ -157,6 +158,36 @@ private fun ActiveRunScreen(
                     .fillMaxWidth()
             )
         }
+    }
+
+    if (!state.shouldTrack && state.hasStartedRunning) {
+        RuntrackDialog(
+            title = stringResource(id = R.string.runnins_is_paused),
+            onDismiss = {
+                onAction(ActiveRunAction.OnResumeRunClick)
+            },
+            description = stringResource(id = R.string.resume_or_finish_run),
+            primaryButton = {
+                RuntrackActionButton(
+                    text = stringResource(id = R.string.resume),
+                    isLoading = false,
+                    onClick = {
+                        onAction(ActiveRunAction.OnResumeRunClick)
+                    },
+                    modifier = Modifier.weight(1f)
+                )
+            },
+            secondaryButton = {
+                RuntrackOutlinedActionButton(
+                    text = stringResource(id = R.string.finish),
+                    isLoading = state.isSavingRun,
+                    onClick = {
+                        onAction(ActiveRunAction.OnFinishRunClick)
+                    },
+                    modifier = Modifier.weight(1f)
+                )
+            }
+        )
     }
 
     if (state.showLocationRationale || state.showNotificationRationale) {
